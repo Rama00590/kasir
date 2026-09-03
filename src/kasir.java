@@ -4,46 +4,35 @@ import javax.swing.table.DefaultTableModel;
 
 
 public class kasir extends javax.swing.JFrame {
-    DefaultTableModel modelData;
+
+    // Deklarasi model tabel
+    DefaultTableModel modelAnggota;
     DefaultTableModel modelPinjaman;
-    DefaultTableModel modelSimpanan;
-    DefaultTableModel Angsuran;
-    
 
     /**
      * Creates new form kasir
      */
     public kasir() {
         initComponents();
-    // ================= DATA BUKU =================
-Object kolom[] = {"Kode Buku", "Judul Buku", "Penulis", "Tahun Terbit", "Genre"};
-Object data[][] = {{"1", "Si Kancil", "Orang", "2015", "Fiksi"}};
+        
+        // ============ DATA ANGGOTA ============
+        Object[] kolomAnggota = {
+            "ID", "Nama", "Status", "Saldo Simpanan", "Limit Pinjaman", "Pinjaman Aktif"
+        };
+        modelAnggota = new DefaultTableModel(kolomAnggota, 0);
+        jTable1.setModel(modelAnggota);
+        
+        // ============ DATA PINJAMAN ============
+        Object[] kolomPinjaman = {
+            "ID Pinjam", "ID Anggota", "Pokok", "Tenor", "Bunga %", 
+            "Angsuran/Bln", "Sisa", "Status"
+        };
+        modelPinjaman = new DefaultTableModel(kolomPinjaman, 0);
+        jTable2.setModel(modelPinjaman);
+    }
 
-modelData = new DefaultTableModel(kolom, 0);
-jTable1.setModel(modelBuku);
-
-
-// ================= DATA SISWA =================
-Object kolomSiswa[] = {"NIS Siswa", "Nama", "Kelas", "Gender"};
-
-modelSiswa = new DefaultTableModel(kolomSiswa, 0);
-jTable2.setModel(modelSiswa);
-
-
-// ================= DATA PEMINJAMAN =================
-Object kolomPinjam[] = {"Nama", "Tanggal Pinjam", "Judul Buku"};
-
-modelPinjam = new DefaultTableModel(kolomPinjam, 0);
-jTable3.setModel(modelPinjam);
-
-
-// ================= DATA PEMINJAMAN =================
-Object kolomKembali[] = {"Nama", "Tanggal Kembali", "Judul Buku"};
-
-modelKembali = new DefaultTableModel(kolomKembali, 0);
-jTable4.setModel(modelKembali);
-    
-    
+    private void initComponents() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
         
@@ -65,7 +54,7 @@ jTable4.setModel(modelKembali);
         ID = new javax.swing.JLabel();
         id = new javax.swing.JTextField();
         NAMA = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
+        STATUS = new javax.swing.JLabel();
         nama = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
@@ -121,7 +110,7 @@ jTable4.setModel(modelKembali);
 
         NAMA.setText("Nama");
 
-        jLabel7.setText("Status Anggota");
+        STATUS.setText("Status Anggota");
 
         nama.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -178,16 +167,16 @@ jTable4.setModel(modelKembali);
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(ID)
                             .addComponent(NAMA)
-                            .addComponent(jLabel7))
+                            .addComponent(STATUS))
                         .addGap(79, 79, 79)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(id, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(151, 151, 151)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(184, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(22, 22, 22)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 596, Short.MAX_VALUE)
                 .addContainerGap())
         );
@@ -204,15 +193,15 @@ jTable4.setModel(modelKembali);
                     .addComponent(nama, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
+                    .addComponent(STATUS)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(286, 286, 286))
+                .addGap(280, 280, 280))
         );
 
         jTabbedPane1.addTab("Data Anggota", jPanel1);
@@ -286,7 +275,7 @@ jTable4.setModel(modelKembali);
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(23, 23, 23)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 502, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(95, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -375,7 +364,7 @@ jTable4.setModel(modelKembali);
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -456,7 +445,7 @@ jTable4.setModel(modelKembali);
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(54, 54, 54)
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(100, Short.MAX_VALUE))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -581,7 +570,7 @@ jTable4.setModel(modelKembali);
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -688,6 +677,7 @@ jTable4.setModel(modelKembali);
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ID;
     private javax.swing.JLabel NAMA;
+    private javax.swing.JLabel STATUS;
     private javax.swing.JTextField id;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -711,7 +701,6 @@ jTable4.setModel(modelKembali);
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
