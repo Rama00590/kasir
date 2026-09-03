@@ -87,13 +87,10 @@ public class kasir extends javax.swing.JFrame {
 
         jLabel2.setText("Id Anggota");
 
-        jTextField3.setText("jTextField3");
-
         jLabel5.setText("Nama");
 
         jLabel7.setText("Status Anggota");
 
-        jTextField4.setText("jTextField4");
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
@@ -188,15 +185,11 @@ public class kasir extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Data Anggota", jPanel1);
 
-        jTextField1.setText("jTextField1");
-
         jLabel3.setText(" Id Anggota");
 
         jLabel4.setText("Jumlah pinjaman");
 
         jLabel6.setText("Jangka Waktu (Bulan)");
-
-        jTextField2.setText("jTextField2");
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "3", "6", "12", "16", "18" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
@@ -460,6 +453,11 @@ public class kasir extends javax.swing.JFrame {
         jTabbedPane1.addTab("Bayar angsuran", jPanel4);
 
         jButton5.setText("Data Anggota");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButton6.setText("Ajukan Pinjaman");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -469,6 +467,11 @@ public class kasir extends javax.swing.JFrame {
         });
 
         jButton7.setText("Bayar Angsuran");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Setor Simpanan");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -544,6 +547,7 @@ public class kasir extends javax.swing.JFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(1);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -576,6 +580,7 @@ public class kasir extends javax.swing.JFrame {
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(2);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
@@ -585,6 +590,16 @@ public class kasir extends javax.swing.JFrame {
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        jTabbedPane1.setSelectedIndex(3);
+    }//GEN-LAST:event_jButton7ActionPerformed
 
     /**
      * @param args the command line arguments
